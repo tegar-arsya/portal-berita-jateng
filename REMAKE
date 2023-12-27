@@ -1,0 +1,25 @@
+<?php
+                                        include('../../Controller/Config/Connection.php');
+                                        $sql = "SELECT  * FROM articles WHERE user_id = $user_id";
+                                        $result = $conn->query($sql);
+                                        if ($result -> num_rows > 0 ) {
+                                            while ($row = $result-> fetch_assoc()){
+                                                // Buat objek DOMDocument
+                                                $dom = new DOMDocument();
+                                                // Muat HTML dari kolom "content"
+                                                $dom->loadHTML($row["content"]);
+
+                                                // Dapatkan elemen-elemen gambar
+                                                $images = $dom->getElementsByTagName('img');
+                                                // Dapatkan URL gambar pertama
+                                                $firstImage = $images->item(0);
+                                                $imageSrc = $firstImage ? $firstImage->getAttribute('src') : '';
+                                                echo "<tr>
+                                                    <td>" . $row["nomer_artikel"] . "</td>
+                                                    <td>" . $row["title"] . "</td>
+                                                    <td>" . $row["oleh"] . "</td>
+                                                    <td><img src='https://beritadaerahjateng.000webhostapp.com/Assets/User-img/$imageSrc' alt='' style='max-width: 200px; max-height: 150px;'></td>
+                                                </tr>";
+                                            }
+                                        }
+                                        ?>

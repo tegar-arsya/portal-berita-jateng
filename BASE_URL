@@ -1,0 +1,22 @@
+form test with webhost 000:
+
+
+<?php
+$uploadDirectory = '../../Assets/User-img/';
+
+if (isset($_FILES['upload']) && $_FILES['upload']['error'] == UPLOAD_ERR_OK) {
+    $tempName = $_FILES['upload']['tmp_name'];
+    $fileName = $_FILES['upload']['name'];
+    $filePath = $uploadDirectory . $fileName;
+
+    // Pindahkan file yang diunggah ke lokasi yang diinginkan
+    move_uploaded_file($tempName, $filePath);
+
+    // Kembalikan URL ke CKEditor
+    $url = 'https://beritadaerahjateng.000webhostapp.com/Assets/User-img/' . $fileName;
+    echo json_encode(['uploaded' => 1, 'url' => $url]);
+} else {
+    echo json_encode(['uploaded' => 0, 'error' => ['message' => 'Failed to upload']]);
+}
+?>
+
