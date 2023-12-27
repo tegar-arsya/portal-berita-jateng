@@ -18,7 +18,7 @@
                                                     <td>" . $row["nomer_artikel"] . "</td>
                                                     <td>" . $row["title"] . "</td>
                                                     <td>" . $row["oleh"] . "</td>
-                                                    <td><img src='https://beritadaerahjateng.000webhostapp.com/Assets/User-img/$imageSrc' alt='' style='max-width: 200px; max-height: 150px;'></td>
+                                                    <td><img src='https://portalberitajateng.000webhostapp.com/Assets/User-img/$imageSrc' alt='' style='max-width: 200px; max-height: 150px;'></td>
                                                 </tr>";
                                             }
                                         }
