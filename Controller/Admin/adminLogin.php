@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id'] = $id;
             $_SESSION['nama'] = $nama;
 
-            header("Location: ../../View/Admin/Dashboard.php");
+            header("Location: ../../View/Admin/Dashboard");
             exit();
         } else {
             // Password tidak cocok
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // User tidak ditemukan
         echo "<script>alert('Silahakan Masukkan email dan password yang benar.');</script>";
-        echo "<script>window.location.href = '../../View/Admin/login.php';</script>";
+        echo "<script>window.location.href = '../../View/Admin/Admin';</script>";
         echo "User not found";
     }
 

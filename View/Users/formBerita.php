@@ -3,7 +3,7 @@ session_start();
 
 include('../../Controller/Config/Connection.php');
 if (!isset($_SESSION['id'])) {
-    header("Location: ../../index.php");
+    header("Location: ../../home");
     exit();
 }
 $user_id = $_SESSION['id'];

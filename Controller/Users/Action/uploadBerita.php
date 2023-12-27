@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         // Berita berhasil ditambahkan, redirect ke halaman daftar berita
-        header("Location: ../../../View/Users/kelolaBerita.php");
+        header("Location: ../../../View/Users/KelolaBerita");
         exit();
     } else {
         // Gagal menyimpan berita

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menjalankan pernyataan SQL
     if ($stmt->execute()) {
         // Registrasi berhasil
-        header("Location: ../../View/Admin/Dashboard.php"); // Redirect ke halaman login
+        header("Location: ../../View/Admin/Dashboard"); // Redirect ke halaman login
         exit();
     } else {
         // Registrasi gagal

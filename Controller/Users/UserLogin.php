@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['id'] = $id;
             $_SESSION['nama'] = $nama;
 
-            header("Location: ../../View/Users/Home.php");
+            header("Location: ../../View/Users/Home");
             exit();
         } else {
             // Password tidak cocok

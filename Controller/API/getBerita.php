@@ -20,7 +20,6 @@ while ($row = $resultBerita->fetch_assoc()) {
 }
 
 // Keluarkan data dalam format JSON
-header('Access-Control-Allow-Origin: http://localhost');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 

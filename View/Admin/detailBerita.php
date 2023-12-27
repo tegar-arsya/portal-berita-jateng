@@ -129,7 +129,7 @@ else {
                             <?php
                             if (isset($_GET['edit']) && $_GET['edit'] == 1) {
                                 // Mode Edit
-                                echo "<form method='post' action='../../Controller/Admin/editBerita.php'>";
+                                echo "<form method='post' action='../../Controller/Admin/EditBerita'>";
                                 echo "<input type='hidden' name='nomer_artikel' value='" . $nomer_artikel . "'>";
                                 echo "<h5>Judul: <input type='text' name='judul' style='width: 100%;' value=' "  . $judul . "'></h5>";
                                 echo "<p>Tanggal: " . (!empty($tanggal) ? htmlspecialchars(date('d-m-Y H:i:s', strtotime($tanggal))) : '') . "</p>";

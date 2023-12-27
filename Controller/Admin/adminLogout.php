@@ -11,6 +11,6 @@ session_unset();
 session_destroy();
 
 // Mengarahkan pengguna ke halaman login
-header("Location: ../../View/Admin/login.php");
+header("Location: ../../View/Admin/Admin");
 exit();
 ?>

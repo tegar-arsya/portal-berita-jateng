@@ -1,0 +1,16 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Menghapus ekstensi .php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+
+    # Contoh lain: Mengarahkan /Admin ke loginAdmin.php
+    RewriteRule ^HapusData$ deleteData.php [NC,L]
+
+    RewriteRule ^VerifikasiBerita$ VerificationBerita.php [NC,L]
+</IfModule>
