@@ -1,3 +1,6 @@
+<?php
+require './Controller/Config/Security/csrf.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,13 +43,14 @@
                                 <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">
-                                        <a href="./View/Admin/Admin" style="text-decoration: none; color: inherit;">
+                                        <a href="./View/Admin/login.php" style="text-decoration: none; color: inherit;">
                                             Welcome Back!
                                         </a>
                                     </h1>
                                 </div>
                                     <form class="user" action="./Controller/Users/UserLogin.php" method="POST">
                                         <div class="form-group">
+                                        <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" name="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">

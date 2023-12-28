@@ -1,3 +1,6 @@
+<?php
+require '../../Controller/Config/Security/csrf.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +46,7 @@
                                     </div>
                                     <form class="user" action="../../Controller/Admin/adminLogin.php" method="POST">
                                         <div class="form-group">
+                                        <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" name="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">

@@ -3,7 +3,7 @@ session_start();
 
 include('../../Controller/Config/Connection.php');
 if (!isset($_SESSION['id'])) {
-    header("Location: ../../View/Admin/Admin");
+    header("Location: ../../View/Admin/login.php");
     exit();
 }
 $user_admin = $_SESSION['id'];

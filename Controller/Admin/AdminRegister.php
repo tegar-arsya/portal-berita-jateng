@@ -1,8 +1,14 @@
 <?php
-
 require '../../Controller/Config/Connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verifikasi token CSRF
+    if (!verify_csrf_token($_POST['csrf_token'])) {
+        echo "<script>alert('Invalid CSRF token.');</script>";
+        echo "<script>window.location.href = '../../View/Admin/register.php';</script>";
+        exit();
+    }
+
     // Mengambil data dari formulir
     $nama = $_POST["nama"];
     $email = $_POST["email"];
@@ -18,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menjalankan pernyataan SQL
     if ($stmt->execute()) {
         // Registrasi berhasil
-        header("Location: ../../View/Admin/Dashboard"); // Redirect ke halaman login
+        header("Location: ../../View/Admin/Dashboard.php"); // Redirect ke halaman dashboard admin
         exit();
     } else {
         // Registrasi gagal

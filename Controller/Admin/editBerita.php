@@ -3,7 +3,7 @@ session_start();
 include('../../Controller/Config/Connection.php');
 
 if (!isset($_SESSION['id'])) {
-    header("Location: ../../View/Admin/Admin");
+    header("Location: ../../View/Admin/login.php");
     exit();
 }
 
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         // Berhasil diupdate, redirect ke halaman detail berita
-        header("Location: ../../View/Admin/DaftarBerita");
+        header("Location: ../../View/Admin/daftarBerita.php");
         exit();
     } else {
         // Gagal update berita

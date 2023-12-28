@@ -1,3 +1,6 @@
+<?php
+require '../../Controller/Config/Security/csrf.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +39,7 @@
                             </div>
                             <form class="user" action="../../Controller/Users/userRegister.php" method="POST">
                                 <div class="form-group">
+                                    <input type="hidden" name="csrf_token" value="<?php echo generate_csrf_token(); ?>">
                                     <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap">
                                 </div>
                                 <div class="form-group">

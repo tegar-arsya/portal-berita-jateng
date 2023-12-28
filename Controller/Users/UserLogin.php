@@ -1,10 +1,13 @@
 <?php
-// Include file koneksi
+session_start();
 require '../../Controller/Config/Connection.php';
 
-session_start(); // Mulai sesi
+// Fungsi untuk memverifikasi token CSRF
+function verify_csrf_token($token) {
+    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && verify_csrf_token($_POST['csrf_token'])) {
     // Ambil data dari formulir
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -23,11 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Memeriksa kecocokan password
         if (password_verify($password, $db_password)) {
             // Login berhasil, buat sesi dan redirect ke halaman yang diinginkan
-            // Login berhasil, buat sesi dan redirect ke halaman yang diinginkan
             $_SESSION['id'] = $id;
             $_SESSION['nama'] = $nama;
 
-            header("Location: ../../View/Users/Home");
+            header("Location: ../../View/Users/Home.php");
             exit();
         } else {
             // Password tidak cocok
@@ -41,5 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Menutup pernyataan dan koneksi database
     $stmt->close();
     $conn->close();
+} else {
+    // Token CSRF tidak valid, tanggapi sesuai kebijakan keamanan Anda
+    echo "Invalid CSRF token";
 }
 ?>

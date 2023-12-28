@@ -133,8 +133,8 @@ if (!isset($_SESSION['id'])) {
                                                 <td>" . $row["oleh"] . "</td>
                                                 <td>" . $row["status_publikasi"] . "</td>
                                                 <td>
-                                                <a href='DetailBerita?no=" . $row["nomer_artikel"] . "' class='btn btn-primary btn-user'>Detail</a>
-                                                <a href='DetailBerita?no=" . $row["nomer_artikel"] . "&edit=1' class='btn btn-primary btn-user'>Edit</a>
+                                                <a href='detailBerita.php?no=" . $row["nomer_artikel"] . "' class='btn btn-primary btn-user'>Detail</a>
+                                                <a href='detailBerita.php?no=" . $row["nomer_artikel"] . "&edit=1' class='btn btn-primary btn-user'>Edit</a>
                                                 <button type='button' data-nomer_artikel='" . $row["nomer_artikel"] . "' class='btn btn-danger delete-btn'>Hapus</button>
                                                             </td>
                                                     </tr>";
